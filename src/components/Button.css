@@ -1,0 +1,28 @@
+.Button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+
+  padding: 10px 20px;
+
+  font-size: 18px;
+  color: #563a3d;
+  background-color: transparent;
+
+  white-space: nowrap;
+  font-family: "Noto Serif KR";
+}
+
+.Button.negative {
+  background-color: #b18c79;
+}
+
+.Button.positive {
+  background-color: #764845;
+}
+
+.Button.plus {
+  background-color: #975ab7;
+
+  font-size: 14px;
+}

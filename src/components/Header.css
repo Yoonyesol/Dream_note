@@ -1,0 +1,31 @@
+header {
+  padding: 20px 0px;
+
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e7e1d8;
+}
+
+header > div {
+  display: flex;
+}
+
+header .header-text {
+  width: 50%;
+  font-size: 25px;
+  justify-content: center;
+}
+
+header .header-left-btn {
+  width: 25%;
+  justify-content: start;
+}
+
+header .header-right-btn {
+  width: 25%;
+  justify-content: end;
+}
+
+header button {
+  font-family: "Noto Serif KR";
+}
