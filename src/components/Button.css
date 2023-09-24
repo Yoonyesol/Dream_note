@@ -10,7 +10,8 @@
   background-color: transparent;
 
   white-space: nowrap;
-  font-family: "Noto Serif KR";
+  /* font-family: "Noto Serif KR"; */
+  font-family: "Gothic A1", sans-serif;
 }
 
 .Button.negative {

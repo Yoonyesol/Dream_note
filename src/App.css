@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Serif+KR&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Gaegu&family=Noto+Serif+KR&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400&display=swap");
 
 body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Noto Serif KR";
+  /* font-family: "Noto Serif KR"; */
+  font-family: "Gothic A1", sans-serif;
   min-height: 100vh;
   margin: 0px;
 }
