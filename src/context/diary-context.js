@@ -3,23 +3,27 @@ import React, { createContext, useReducer, useRef } from "react";
 const dummyData = [
   {
     id: 1,
+    title: "1번 일기",
     content: "오늘의 일기 1번",
-    date: 1692448583692,
+    date: 1695576038891,
   },
   {
     id: 2,
+    title: "2번 일기",
     content: "오늘의 일기 2번",
-    date: 1692448583693,
+    date: 1695576038896,
   },
   {
     id: 3,
+    title: "3번 일기",
     content: "오늘의 일기 3번",
-    date: 1692448583694,
+    date: 1695576038899,
   },
   {
     id: 4,
+    title: "4번 일기",
     content: "오늘의 일기 4번",
-    date: 1692448583695,
+    date: 1698599938999,
   },
 ];
 
