@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
+import "./DiaryList.css";
+
 const sortOption = [
   { value: "latest", name: "최신순" },
   { value: "oldest", name: "오래된 순" },
@@ -10,7 +12,11 @@ const sortOption = [
 //최신순, 오래된 순 출력해주고 각 값을 선택하면 그에 맞춰 setSortType을 바꿔주는 컴포넌트
 const ControlMenu = ({ value, choosOption, optionList }) => {
   return (
-    <select value={value} onChange={(e) => choosOption(e.target.value)}>
+    <select
+      className="control-menu"
+      value={value}
+      onChange={(e) => choosOption(e.target.value)}
+    >
       {optionList.map((it, idx) => (
         <option key={idx} value={it.value}>
           {it.name}
@@ -43,17 +49,23 @@ const DiaryList = ({ diaryList }) => {
   };
 
   return (
-    <div>
-      <ControlMenu
-        value={sortType}
-        choosOption={setSortType}
-        optionList={sortOption}
-      />
-      <Button
-        type="positive"
-        text="새 일기 작성"
-        onClick={() => navigate("/new")}
-      />
+    <div className="diary-list">
+      <div className="menu">
+        <div className="left-items">
+          <ControlMenu
+            value={sortType}
+            choosOption={setSortType}
+            optionList={sortOption}
+          />
+        </div>
+        <div className="right-items">
+          <Button
+            type="positive"
+            text="새 일기 작성"
+            onClick={() => navigate("/new")}
+          />
+        </div>
+      </div>
       {getSortedDiaryList().map((it) => (
         <div key={it.id}>{it.content}</div>
       ))}

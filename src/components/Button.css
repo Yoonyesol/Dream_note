@@ -1,11 +1,11 @@
 .Button {
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
 
   padding: 10px 20px;
 
-  font-size: 18px;
+  font-size: 16px;
   color: #563a3d;
   background-color: transparent;
 
@@ -16,14 +16,17 @@
 
 .Button.negative {
   background-color: #b18c79;
+  color: white;
 }
 
 .Button.positive {
   background-color: #764845;
+  color: white;
 }
 
 .Button.plus {
   background-color: #975ab7;
+  color: white;
 
   font-size: 14px;
 }

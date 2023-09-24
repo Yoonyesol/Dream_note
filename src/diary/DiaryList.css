@@ -1,0 +1,27 @@
+.diary-list .menu {
+  margin: 20px 0px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.diary-list .menu .right-items {
+  flex-grow: 1; /*left-items 제외한 전체 영역의 넓이를 갖게 됨*/
+}
+
+.diary-list .menu .right-items button {
+  width: 100%;
+}
+
+.diary-list .control-menu {
+  margin-right: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: #b18c79;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+  font-family: "Gothic A1", sans-serif;
+  font-size: 16px;
+}
