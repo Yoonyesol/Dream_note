@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import { DiaryContext } from "../context/diary-context";
+import DiaryList from "../diary/DiaryList";
 
 const Home = () => {
   const diaryCtx = useContext(DiaryContext);
@@ -53,9 +54,7 @@ const Home = () => {
         leftBtn={<Button text="◀" onClick={decreaseMonthHandler} />}
         rightBtn={<Button text="▶" onClick={increaseMonthHandler} />}
       />
-      {data.map((it) => (
-        <div key={it.id}>{it.content}</div>
-      ))}
+      <DiaryList diaryList={data} />
     </div>
   );
 };
