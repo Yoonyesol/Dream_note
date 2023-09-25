@@ -12,7 +12,7 @@ const getStringDate = (date) => {
 };
 
 const DiaryEditor = ({ isEdit, originData }) => {
-  const { onCreate, onEdit } = useContext(DiaryContext);
+  const { onCreate, onEdit, onRemove } = useContext(DiaryContext);
 
   const [date, setDate] = useState(getStringDate(new Date()));
   const [img, setImg] = useState();
@@ -60,6 +60,13 @@ const DiaryEditor = ({ isEdit, originData }) => {
     navigate("/", { replace: true });
   };
 
+  const removeHandler = () => {
+    if (window.confirm("일기를 삭제하시겠습니까?")) {
+      onRemove(originData.id);
+      navigate("/", { replace: true });
+    }
+  };
+
   useEffect(() => {
     if (isEdit) {
       setDate(getStringDate(new Date(parseInt(originData.date))));
@@ -77,10 +84,15 @@ const DiaryEditor = ({ isEdit, originData }) => {
           <Button
             type="negative"
             text="뒤로 가기"
-            onClick={(e) => navigate(-1)}
+            onClick={() => navigate(-1)}
           />
         }
         headText={isEdit ? "수정하기" : "새 일기 쓰기"}
+        rightBtn={
+          isEdit && (
+            <Button type="positive" text="삭제하기" onClick={removeHandler} />
+          )
+        }
       />
       <div>
         <section>
