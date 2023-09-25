@@ -10,6 +10,11 @@ const Edit = () => {
   const { id } = useParams();
 
   useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Dream Note : ${id}번 일기 수정`;
+  }, []);
+
+  useEffect(() => {
     if (diary.length) {
       const targetDiary = diary.filter(
         (it) => parseInt(it.id) === parseInt(id)

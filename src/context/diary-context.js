@@ -45,13 +45,15 @@ const DiaryProvider = ({ children }) => {
   //로컬스토리지에서 데이터 가져오기
   useEffect(() => {
     const localData = localStorage.getItem("dreamNote");
-    if (localData.length > 2) {
+    if (localData) {
       //기본값인 최신순으로 정렬
       const diaryList = JSON.parse(localData).sort(
         (a, b) => parseInt(b.id) - parseInt(a.id)
       );
       //가장 최근 일기의 id에서 +1
-      diaryId.current = parseInt(diaryList[0].id) + 1;
+      if (diaryList.length >= 1) {
+        diaryId.current = parseInt(diaryList[0].id) + 1;
+      }
 
       dispatch({ type: "INIT", diary: diaryList });
     }

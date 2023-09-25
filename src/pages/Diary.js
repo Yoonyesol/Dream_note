@@ -17,6 +17,11 @@ const Diary = () => {
   const [data, setData] = useState();
 
   useEffect(() => {
+    const titleElement = document.getElementsByTagName("title")[0];
+    titleElement.innerHTML = `Dream Note : ${id}번 일기`;
+  }, []);
+
+  useEffect(() => {
     if (diary.length) {
       const targetDiary = diary.filter(
         (it) => parseInt(it.id) === parseInt(id)
