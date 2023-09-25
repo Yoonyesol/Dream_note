@@ -1,0 +1,62 @@
+.diary-editor {
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h4 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.input-date,
+input[type="file"]::file-selector-button,
+.genre-title-wrapper select,
+.genre-title-wrapper input,
+.text-wrapper textarea {
+  border: none;
+  border-radius: 20px;
+  background-color: #e7e1d8;
+
+  padding: 10px 20px;
+
+  cursor: pointer;
+  font-family: "Gothic A1", sans-serif;
+  font-size: 16px;
+}
+
+.img-preview {
+  margin-top: 10px;
+}
+
+.img-preview img {
+  height: 120px;
+  border-radius: 20px;
+}
+
+.genre-title-wrapper select {
+  border-radius: 20px 0 0 20px;
+  height: 40px;
+}
+
+.genre-title-wrapper input {
+  border-radius: 0px 20px 20px 0px;
+}
+
+.genre-title-wrapper {
+  display: flex;
+}
+
+.text-wrapper textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 200px;
+  resize: vertical;
+}
+
+.control-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

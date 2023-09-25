@@ -1,4 +1,6 @@
+import DiaryEditor from "../diary/DiaryEditor";
+
 const Edit = () => {
-  return <h1>Edit</h1>;
+  return <DiaryEditor />;
 };
 export default Edit;

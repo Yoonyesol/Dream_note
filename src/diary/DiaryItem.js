@@ -4,7 +4,7 @@ import Button from "../components/Button";
 import "./DiaryItem.css";
 import Card from "../components/Card";
 
-const DiaryItem = ({ id, title, content, date }) => {
+const DiaryItem = ({ id, img, title, content, date }) => {
   const navigate = useNavigate();
 
   //toLocaleDateString(): 로컬 규칙을 사용하여 Date 객체의 날짜 부분을 문자열로 반환
@@ -28,12 +28,12 @@ const DiaryItem = ({ id, title, content, date }) => {
       <Card>
         <div className="diary-item">
           <div className="diary-image" onClick={goDetailHandler}>
-            <img src={process.env.PUBLIC_URL + `assets/dog.jpeg`} />
+            <img src={img} />
           </div>
           <div className="diary-info" onClick={goDetailHandler}>
             <div className="diary-date">{strDate}</div>
             <div className="content-preview">
-              <div className="diary-title">title: {title}</div>
+              <div className="diary-title">제목: {title}</div>
               <div className="diary-content">{content.slice(0, 20)}</div>
             </div>
           </div>

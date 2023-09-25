@@ -4,24 +4,28 @@ const dummyData = [
   {
     id: 1,
     title: "1번 일기",
+    img: "",
     content: "오늘의 일기 1번",
     date: 1695576038891,
   },
   {
     id: 2,
     title: "2번 일기",
+    img: "",
     content: "오늘의 일기 2번",
     date: 1695576038896,
   },
   {
     id: 3,
     title: "3번 일기",
+    img: "",
     content: "오늘의 일기 3번",
     date: 1695576038899,
   },
   {
     id: 4,
     title: "4번 일기",
+    img: "",
     content: "오늘의 일기 4번",
     date: 1698599938999,
   },
@@ -46,7 +50,7 @@ const reducer = (state, action) => {
     }
     case "REMOVE": {
       diaryArr = state.filter((it) => it.id !== action.targetId);
-      return action.diary;
+      break;
     }
     default:
       return state;
@@ -68,12 +72,15 @@ const DiaryProvider = ({ children }) => {
   const diaryId = useRef(0);
 
   //CREATE
-  const onCreate = (date, content) => {
+  const onCreate = (date, img, genre, title, content) => {
     dispatch({
       type: "CREATE",
       diary: {
         id: diaryId.current,
         date: new Date(date).getTime(),
+        img,
+        genre,
+        title,
         content,
       },
     });
@@ -81,12 +88,15 @@ const DiaryProvider = ({ children }) => {
   };
 
   //EDIT
-  const onEdit = (targetId, date, content) => {
+  const onEdit = (targetId, date, img, genre, title, content) => {
     dispatch({
       type: "EDIT",
       diary: {
         id: targetId.current,
         date: new Date(date).getTime(),
+        img,
+        genre,
+        title,
         content,
       },
     });
