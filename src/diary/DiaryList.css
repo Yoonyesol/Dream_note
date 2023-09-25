@@ -1,19 +1,19 @@
-.diary-list .menu {
+.menu {
   margin: 20px 0px;
 
   display: flex;
   justify-content: space-between;
 }
 
-.diary-list .menu .right-items {
+.menu .right-items {
   flex-grow: 1; /*left-items 제외한 전체 영역의 넓이를 갖게 됨*/
 }
 
-.diary-list .menu .right-items button {
+.menu .right-items button {
   width: 100%;
 }
 
-.diary-list .control-menu {
+.control-menu {
   margin-right: 10px;
   border: none;
   border-radius: 20px;
