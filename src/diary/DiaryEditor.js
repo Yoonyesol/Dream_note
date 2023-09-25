@@ -16,7 +16,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
 
   const [date, setDate] = useState(getStringDate(new Date()));
   const [img, setImg] = useState();
-  const [genre, setGenre] = useState("daily");
+  const [genre, setGenre] = useState("일상");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -26,11 +26,11 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const navigate = useNavigate();
 
   const genreList = [
-    { value: "daily", name: "일상" },
-    { value: "fantasy", name: "판타지" },
-    { value: "action", name: "액션" },
-    { value: "adventure", name: "모험" },
-    { value: "horror", name: "호러" },
+    { value: "일상", name: "일상" },
+    { value: "판타지", name: "판타지" },
+    { value: "액션", name: "액션" },
+    { value: "모험", name: "모험" },
+    { value: "호러", name: "호러" },
   ];
 
   const setImgHandler = () => {
@@ -122,6 +122,8 @@ const DiaryEditor = ({ isEdit, originData }) => {
               />
             </div>
           </div>
+        </section>
+        <section>
           <div>
             <h4>내용</h4>
             <div className="text-wrapper">
