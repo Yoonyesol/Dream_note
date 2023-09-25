@@ -6,28 +6,28 @@ const dummyData = [
     title: "1번 일기",
     img: "",
     content: "오늘의 일기 1번",
-    date: 1695576038891,
+    date: 1695630298754,
   },
   {
     id: 2,
     title: "2번 일기",
     img: "",
     content: "오늘의 일기 2번",
-    date: 1695576038896,
+    date: 1695630298755,
   },
   {
     id: 3,
     title: "3번 일기",
     img: "",
     content: "오늘의 일기 3번",
-    date: 1695576038899,
+    date: 1695630298758,
   },
   {
     id: 4,
     title: "4번 일기",
     img: "",
     content: "오늘의 일기 4번",
-    date: 1698599938999,
+    date: 1699939298759,
   },
 ];
 
@@ -44,7 +44,7 @@ const reducer = (state, action) => {
     }
     case "EDIT": {
       diaryArr = state.map((it) =>
-        it.id === action.diary.id ? { ...action.data } : it
+        it.id === action.diary.id ? { ...action.diary } : it
       );
       break;
     }
@@ -60,7 +60,7 @@ const reducer = (state, action) => {
 
 //컨텍스트 생성
 export const DiaryContext = createContext({
-  diary: [],
+  diary: null,
   onCreate: () => {},
   onEdit: () => {},
   onRemove: () => {},
@@ -69,7 +69,7 @@ export const DiaryContext = createContext({
 const DiaryProvider = ({ children }) => {
   const [diary, dispatch] = useReducer(reducer, dummyData);
 
-  const diaryId = useRef(0);
+  const diaryId = useRef(5);
 
   //CREATE
   const onCreate = (date, img, genre, title, content) => {
@@ -92,7 +92,7 @@ const DiaryProvider = ({ children }) => {
     dispatch({
       type: "EDIT",
       diary: {
-        id: targetId.current,
+        id: targetId,
         date: new Date(date).getTime(),
         img,
         genre,

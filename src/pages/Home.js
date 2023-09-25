@@ -21,11 +21,14 @@ const Home = () => {
         1
       ).getTime();
 
-      //다음 달 0일까지
+      //다음 달 0일 23시 59분 59초까지
       const lastDay = new Date(
         curDate.getFullYear(),
         curDate.getMonth() + 1,
-        0
+        0,
+        23,
+        59,
+        59
       ).getTime();
 
       //이번 달 일기를 추리기

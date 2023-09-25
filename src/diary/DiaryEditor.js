@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import Button from "../components/Button";
@@ -11,12 +11,12 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
-const DiaryEditor = () => {
-  const { onCreate } = useContext(DiaryContext);
+const DiaryEditor = ({ isEdit, originData }) => {
+  const { onCreate, onEdit } = useContext(DiaryContext);
 
   const [date, setDate] = useState(getStringDate(new Date()));
   const [img, setImg] = useState();
-  const [genre, setGenre] = useState("일상");
+  const [genre, setGenre] = useState("daily");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
@@ -33,7 +33,7 @@ const DiaryEditor = () => {
     { value: "horror", name: "호러" },
   ];
 
-  const setImgHandler = (e) => {
+  const setImgHandler = () => {
     const imgfile = imgRef.current.files[0];
     const reader = new FileReader();
     reader.onload = () => {
@@ -44,11 +44,31 @@ const DiaryEditor = () => {
   };
 
   const submitHandler = () => {
-    if (!content) {
+    if (!title) {
+      titleRef.current.focus();
+      return;
     }
-    onCreate(date, img, genre, title, content);
+    if (!content) {
+      contentRef.current.focus();
+      return;
+    }
+    if (!isEdit) {
+      onCreate(date, img, genre, title, content);
+    } else {
+      onEdit(originData.id, date, img, genre, title, content);
+    }
     navigate("/", { replace: true });
   };
+
+  useEffect(() => {
+    if (isEdit) {
+      setDate(getStringDate(new Date(parseInt(originData.date))));
+      setImg(originData.img);
+      setGenre(originData.genre);
+      setTitle(originData.title);
+      setContent(originData.content);
+    }
+  }, [isEdit, originData]);
 
   return (
     <div className="diary-editor">
@@ -60,7 +80,7 @@ const DiaryEditor = () => {
             onClick={(e) => navigate(-1)}
           />
         }
-        headText="새 일기 쓰기"
+        headText={isEdit ? "수정하기" : "새 일기 쓰기"}
       />
       <div>
         <section>
@@ -85,7 +105,7 @@ const DiaryEditor = () => {
           <h4>장르 | 제목</h4>
           <div className="genre-title-wrapper">
             <div className="genre-wrapper">
-              <select onChange={(e) => setGenre(e.target.value)}>
+              <select value={genre} onChange={(e) => setGenre(e.target.value)}>
                 {genreList.map((it, idx) => (
                   <option key={idx} value={it.value}>
                     {it.name}
@@ -121,7 +141,11 @@ const DiaryEditor = () => {
               text="취소하기"
               onClick={(e) => navigate(-1)}
             />
-            <Button type="positive" text="작성하기" onClick={submitHandler} />
+            <Button
+              type="positive"
+              text={isEdit ? "수정완료" : "작성하기"}
+              onClick={submitHandler}
+            />
           </div>
         </section>
       </div>
