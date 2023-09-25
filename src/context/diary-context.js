@@ -1,38 +1,7 @@
-import React, { createContext, useReducer, useRef } from "react";
-
-const dummyData = [
-  {
-    id: 1,
-    title: "1번 일기",
-    img: "",
-    content: "오늘의 일기 1번",
-    date: 1695630298754,
-  },
-  {
-    id: 2,
-    title: "2번 일기",
-    img: "",
-    content: "오늘의 일기 2번",
-    date: 1695630298755,
-  },
-  {
-    id: 3,
-    title: "3번 일기",
-    img: "",
-    content: "오늘의 일기 3번",
-    date: 1695630298758,
-  },
-  {
-    id: 4,
-    title: "4번 일기",
-    img: "",
-    content: "오늘의 일기 4번",
-    date: 1699939298759,
-  },
-];
+import React, { createContext, useEffect, useReducer, useRef } from "react";
 
 //reducer - state를 업데이트 하는 역할
-const reducer = (state, action) => {
+export const reducer = (state, action) => {
   let diaryArr = [];
   switch (action.type) {
     case "INIT": {
@@ -55,6 +24,8 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+  //로컬스토리지에 데이터를 JSON 형태로 저장
+  localStorage.setItem("dreamNote", JSON.stringify(diaryArr));
   return diaryArr;
 };
 
@@ -67,9 +38,24 @@ export const DiaryContext = createContext({
 });
 
 const DiaryProvider = ({ children }) => {
-  const [diary, dispatch] = useReducer(reducer, dummyData);
+  const [diary, dispatch] = useReducer(reducer, []);
 
-  const diaryId = useRef(5);
+  const diaryId = useRef(1);
+
+  //로컬스토리지에서 데이터 가져오기
+  useEffect(() => {
+    const localData = localStorage.getItem("dreamNote");
+    if (localData.length > 2) {
+      //기본값인 최신순으로 정렬
+      const diaryList = JSON.parse(localData).sort(
+        (a, b) => parseInt(b.id) - parseInt(a.id)
+      );
+      //가장 최근 일기의 id에서 +1
+      diaryId.current = parseInt(diaryList[0].id) + 1;
+
+      dispatch({ type: "INIT", diary: diaryList });
+    }
+  }, []);
 
   //CREATE
   const onCreate = (date, img, genre, title, content) => {
