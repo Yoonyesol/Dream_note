@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
 
@@ -11,7 +11,7 @@ const sortOption = [
 ];
 
 //최신순, 오래된 순 출력해주고 각 값을 선택하면 그에 맞춰 setSortType을 바꿔주는 컴포넌트
-const ControlMenu = ({ value, choosOption, optionList }) => {
+const ControlMenu = React.memo(({ value, choosOption, optionList }) => {
   return (
     <select
       className="control-menu"
@@ -25,7 +25,7 @@ const ControlMenu = ({ value, choosOption, optionList }) => {
       ))}
     </select>
   );
-};
+});
 
 const DiaryList = ({ diaryList }) => {
   const navigate = useNavigate();
