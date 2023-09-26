@@ -11,6 +11,16 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
+// const genreList = [
+//   { value: "일상", name: "일상" },
+//   { value: "판타지", name: "판타지" },
+//   { value: "액션", name: "액션" },
+//   { value: "모험", name: "모험" },
+//   { value: "호러", name: "호러" },
+// ];
+
+const genreList = ["일상", "판타지", "액션", "모험", "호러"];
+
 const DiaryEditor = ({ isEdit, originData }) => {
   const { onCreate, onEdit, onRemove } = useContext(DiaryContext);
 
@@ -19,19 +29,25 @@ const DiaryEditor = ({ isEdit, originData }) => {
   const [genre, setGenre] = useState("일상");
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [genreEditorShown, setGenreEditorShown] = useState(false);
+  const [inputData, setInputData] = useState("");
+  const [userGenre, setUserGenre] = useState([]);
 
   const imgRef = useRef();
   const titleRef = useRef();
   const contentRef = useRef();
+  const userGenreRef = useRef();
   const navigate = useNavigate();
 
-  const genreList = [
-    { value: "일상", name: "일상" },
-    { value: "판타지", name: "판타지" },
-    { value: "액션", name: "액션" },
-    { value: "모험", name: "모험" },
-    { value: "호러", name: "호러" },
-  ];
+  useEffect(() => {
+    const localData = localStorage.getItem("dreamNoteGenre");
+    if (!localData) {
+      setUserGenre(genreList);
+      localStorage.setItem("dreamNoteGenre", JSON.stringify(genreList));
+    } else {
+      setUserGenre(JSON.parse(localData));
+    }
+  }, []);
 
   const setImgHandler = () => {
     const imgfile = imgRef.current.files[0];
@@ -58,6 +74,31 @@ const DiaryEditor = ({ isEdit, originData }) => {
       onEdit(originData.id, date, img, genre, title, content);
     }
     navigate("/", { replace: true });
+  };
+
+  const genreEditroHandler = () => {
+    setGenreEditorShown((prev) => !prev);
+  };
+
+  const addGenreHandler = () => {
+    if (inputData !== "") {
+      const genreArr = [...userGenre];
+      if (!genreArr.some((it) => it === inputData)) {
+        genreArr.push(inputData);
+        setUserGenre(genreArr);
+        setInputData("");
+        userGenreRef.current.value = null;
+        localStorage.setItem("dreamNoteGenre", JSON.stringify(genreArr));
+      }
+    }
+  };
+
+  const removeGenreHandler = (value) => {
+    if (value !== "일상" && value !== genre) {
+      const genreArr = userGenre.filter((it) => it !== value);
+      setUserGenre(genreArr);
+      localStorage.setItem("dreamNoteGenre", JSON.stringify(genreArr));
+    }
   };
 
   const removeHandler = () => {
@@ -114,13 +155,43 @@ const DiaryEditor = ({ isEdit, originData }) => {
           )}
         </section>
         <section>
-          <h4>장르 | 제목</h4>
+          <div className="h4-genre-wrapper">
+            <h4>장르 | 제목</h4>
+            <div className="content-add-btn">
+              <Button
+                type={"plus"}
+                text="장르 추가"
+                onClick={genreEditroHandler}
+              />
+            </div>
+          </div>
+          {genreEditorShown && (
+            <div className="genre-editor">
+              <input
+                placeholder="장르"
+                ref={userGenreRef}
+                onChange={(e) => setInputData(e.target.value)}
+              />
+              <Button type={"plus"} text="+" onClick={addGenreHandler} />
+
+              {userGenre.map((it, idx) => (
+                <li key={idx} value={it}>
+                  {it}
+                  <Button
+                    type={"plus"}
+                    text="x"
+                    onClick={() => removeGenreHandler(it)}
+                  />
+                </li>
+              ))}
+            </div>
+          )}
           <div className="genre-title-wrapper">
             <div className="genre-wrapper">
               <select value={genre} onChange={(e) => setGenre(e.target.value)}>
-                {genreList.map((it, idx) => (
-                  <option key={idx} value={it.value}>
-                    {it.name}
+                {userGenre.map((it, idx) => (
+                  <option key={idx} value={it}>
+                    {it}
                   </option>
                 ))}
               </select>

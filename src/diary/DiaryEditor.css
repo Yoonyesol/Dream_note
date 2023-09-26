@@ -35,6 +35,18 @@ input[type="file"]::file-selector-button,
   border-radius: 20px;
 }
 
+.h4-genre-wrapper {
+  display: flex;
+  position: relative;
+}
+
+.h4-genre-wrapper button {
+  position: absolute;
+  margin-left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .genre-title-wrapper select {
   border-radius: 20px 0 0 20px;
   height: 40px;
