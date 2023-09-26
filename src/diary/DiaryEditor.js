@@ -11,14 +11,6 @@ const getStringDate = (date) => {
   return date.toISOString().slice(0, 10);
 };
 
-// const genreList = [
-//   { value: "일상", name: "일상" },
-//   { value: "판타지", name: "판타지" },
-//   { value: "액션", name: "액션" },
-//   { value: "모험", name: "모험" },
-//   { value: "호러", name: "호러" },
-// ];
-
 const genreList = ["일상", "판타지", "액션", "모험", "호러"];
 
 const DiaryEditor = ({ isEdit, originData }) => {
@@ -123,7 +115,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
       <Header
         leftBtn={
           <Button
-            type="negative"
+            type="light-brown"
             text="뒤로 가기"
             onClick={() => navigate(-1)}
           />
@@ -131,7 +123,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
         headText={isEdit ? "수정하기" : "새 일기 쓰기"}
         rightBtn={
           isEdit && (
-            <Button type="positive" text="삭제하기" onClick={removeHandler} />
+            <Button type="dark-brown" text="삭제하기" onClick={removeHandler} />
           )
         }
       />
@@ -157,35 +149,41 @@ const DiaryEditor = ({ isEdit, originData }) => {
         <section>
           <div className="h4-genre-wrapper">
             <h4>장르 | 제목</h4>
-            <div className="content-add-btn">
+            <div className="genre-add-btn">
               <Button
-                type={"plus"}
+                type="little"
                 text="장르 추가"
                 onClick={genreEditroHandler}
               />
             </div>
           </div>
-          {genreEditorShown && (
-            <div className="genre-editor">
-              <input
-                placeholder="장르"
-                ref={userGenreRef}
-                onChange={(e) => setInputData(e.target.value)}
-              />
-              <Button type={"plus"} text="+" onClick={addGenreHandler} />
+          <div className="genre-edit-div">
+            {genreEditorShown && (
+              <div className="genre-editor">
+                <input
+                  placeholder="장르"
+                  ref={userGenreRef}
+                  onChange={(e) => setInputData(e.target.value)}
+                />
+                <Button
+                  type="little purple"
+                  text="+"
+                  onClick={addGenreHandler}
+                />
+                {userGenre.map((it, idx) => (
+                  <li key={idx} value={it}>
+                    {it}
+                    <Button
+                      type="little red"
+                      text="x"
+                      onClick={() => removeGenreHandler(it)}
+                    />
+                  </li>
+                ))}
+              </div>
+            )}
+          </div>
 
-              {userGenre.map((it, idx) => (
-                <li key={idx} value={it}>
-                  {it}
-                  <Button
-                    type={"plus"}
-                    text="x"
-                    onClick={() => removeGenreHandler(it)}
-                  />
-                </li>
-              ))}
-            </div>
-          )}
           <div className="genre-title-wrapper">
             <div className="genre-wrapper">
               <select value={genre} onChange={(e) => setGenre(e.target.value)}>
@@ -222,12 +220,12 @@ const DiaryEditor = ({ isEdit, originData }) => {
         <section>
           <div className="control-btn">
             <Button
-              type="negative"
+              type="light-brown"
               text="취소하기"
               onClick={(e) => navigate(-1)}
             />
             <Button
-              type="positive"
+              type="dark-brown"
               text={isEdit ? "수정완료" : "작성하기"}
               onClick={submitHandler}
             />

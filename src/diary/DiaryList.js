@@ -61,7 +61,7 @@ const DiaryList = ({ diaryList }) => {
         </div>
         <div className="right-items">
           <Button
-            type="positive"
+            type="dark-brown"
             text="새 일기 작성"
             onClick={() => navigate("/new")}
           />

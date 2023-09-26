@@ -39,7 +39,7 @@ const DiaryItem = ({ id, img, title, content, date }) => {
             </div>
           </div>
           <div className="button-wrapper">
-            <Button type="negative" text="수정하기" onClick={goEditHandler} />
+            <Button type="dark-brown" text="수정하기" onClick={goEditHandler} />
           </div>
         </div>
       </Card>

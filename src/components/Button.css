@@ -14,20 +14,34 @@
   font-family: "Gothic A1", sans-serif;
 }
 
-.Button.negative {
+.Button.light-brown {
   background-color: #b18c79;
   color: white;
 }
 
-.Button.positive {
+.Button.dark-brown {
   background-color: #764845;
   color: white;
 }
 
-.Button.plus {
-  background-color: #975ab7;
+.Button.little {
   color: white;
-  padding: 8px 13px;
+  padding: 5px 10px;
 
+  background-color: #764845;
   font-size: 13px;
+}
+
+.Button.little.purple {
+  background-color: transparent;
+  color: #975ab7;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.Button.little.red {
+  color: #ec5e5e;
+  background-color: transparent;
+  font-weight: bold;
+  font-size: 16px;
 }

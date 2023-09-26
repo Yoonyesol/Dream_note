@@ -43,7 +43,7 @@ const Diary = () => {
       <Header
         leftBtn={
           <Button
-            type={"negative"}
+            type="light-brown"
             text={"뒤로 가기"}
             onClick={() => navigate(-1)}
           />
@@ -51,7 +51,7 @@ const Diary = () => {
         headText={`${getStringDate(new Date(data.date))} 일기`}
         rightBtn={
           <Button
-            type={"positive"}
+            type="dark-brown"
             text={"수정하기"}
             onClick={() => navigate(`/edit/${data.id}`)}
           />

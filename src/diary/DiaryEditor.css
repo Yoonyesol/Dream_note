@@ -12,6 +12,7 @@ h4 {
 
 .input-date,
 input[type="file"]::file-selector-button,
+.genre-edit-div input,
 .genre-title-wrapper select,
 .genre-title-wrapper input,
 .text-wrapper textarea {
@@ -45,6 +46,29 @@ input[type="file"]::file-selector-button,
   margin-left: 20px;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.genre-edit-div {
+  margin-bottom: 20px;
+}
+
+.genre-edit-div input {
+  margin-bottom: 10px;
+}
+
+.genre-edit-div li {
+  list-style: none;
+  margin-left: 15px;
+}
+
+.genre-edit-div li::before {
+  content: "#  ";
+  font-weight: bold;
+  color: gray;
+}
+
+.genre-edit-div li button {
+  margin-left: 20px;
 }
 
 .genre-title-wrapper select {
