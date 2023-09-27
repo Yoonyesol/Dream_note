@@ -11,8 +11,8 @@
 
 .diary-image {
   cursor: pointer;
-  min-width: 120px;
-  height: 110px;
+  min-width: 100px;
+  height: 100px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -31,13 +31,24 @@
 
 .diary-date {
   font-weight: bold;
-  font-size: 18px;
+  font-size: 19px;
   margin-bottom: 5px;
 }
 
 .content-preview {
-  font-size: 16px;
   line-height: 25px;
+  width: 300px;
+}
+
+.diary-genre-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(72, 72, 73);
+}
+
+.diary-content {
+  font-size: 15px;
+  color: rgb(72, 72, 73);
 }
 
 .button-wrapper {
