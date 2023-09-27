@@ -59,7 +59,7 @@ const DiaryList = ({ diaryList }) => {
             optionList={sortOption}
           />
         </div>
-        <div className="right-items">
+        <div className="right-item">
           <Button
             type="dark-brown"
             text="새 일기 작성"

@@ -13,8 +13,8 @@ h4 {
 .input-date,
 input[type="file"]::file-selector-button,
 .genre-edit-div input,
-.genre-title-wrapper select,
-.genre-title-wrapper input,
+.genre-wrapper select,
+.title-wrapper input,
 .text-wrapper textarea {
   border: none;
   border-radius: 20px;
@@ -71,17 +71,17 @@ input[type="file"]::file-selector-button,
   margin-left: 20px;
 }
 
-.genre-title-wrapper select {
+.genre-title-wrapper {
+  display: flex;
+}
+
+.genre-wrapper select {
   border-radius: 20px 0 0 20px;
   height: 40px;
 }
 
-.genre-title-wrapper input {
+.title-wrapper input {
   border-radius: 0px 20px 20px 0px;
-}
-
-.genre-title-wrapper {
-  display: flex;
 }
 
 .text-wrapper textarea {
@@ -95,4 +95,36 @@ input[type="file"]::file-selector-button,
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media screen and (min-width: 280px) and (max-width: 650px) {
+  h4 {
+    font-size: 15px;
+  }
+
+  .input-date,
+  input[type="file"]::file-selector-button,
+  .genre-edit-div input,
+  .genre-wrapper select,
+  .title-wrapper input,
+  .text-wrapper textarea {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .genre-wrapper select {
+    border-radius: 20px 0 0 20px;
+    padding: 8px 10px;
+    height: 35px;
+    width: 85px;
+  }
+
+  .title-wrapper input {
+    border-radius: 0px 20px 20px 0px;
+    width: 140px;
+  }
+
+  .text-wrapper textarea {
+    padding: 10px 20px;
+  }
 }

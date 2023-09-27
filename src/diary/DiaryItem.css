@@ -11,12 +11,13 @@
 
 .diary-image {
   cursor: pointer;
-  min-width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 20px;
   display: flex;
   justify-content: center;
   background-color: #f9f8f3;
+  overflow: hidden;
 }
 
 .diary-image img {
@@ -53,4 +54,25 @@
 
 .button-wrapper {
   min-width: 70px;
+}
+
+@media screen and (min-width: 280px) and (max-width: 650px) {
+  .diary-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .diary-date {
+    margin: 10px 0;
+  }
+
+  .diary-info {
+    margin-left: 0px;
+    text-align: center;
+  }
+
+  .content-preview {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 }

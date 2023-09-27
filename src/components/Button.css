@@ -9,7 +9,6 @@
   color: #563a3d;
   background-color: transparent;
 
-  white-space: nowrap;
   /* font-family: "Noto Serif KR"; */
   font-family: "Gothic A1", sans-serif;
 }
@@ -21,6 +20,11 @@
 
 .Button.dark-brown {
   background-color: #764845;
+  color: white;
+}
+
+.Button.red {
+  background-color: #ec5e5e;
   color: white;
 }
 
@@ -44,4 +48,16 @@
   background-color: transparent;
   font-weight: bold;
   font-size: 16px;
+}
+
+@media screen and (min-width: 280px) and (max-width: 650px) {
+  .Button {
+    padding: 10px 15px;
+    font-size: 15px;
+  }
+
+  .Button.little {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
 }

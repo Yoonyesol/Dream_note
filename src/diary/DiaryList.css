@@ -1,20 +1,18 @@
 .menu {
   margin: 20px 0px;
-
   display: flex;
-  justify-content: space-between;
 }
 
-.menu .right-items {
+.menu .right-item {
   flex-grow: 1; /*left-items 제외한 전체 영역의 넓이를 갖게 됨*/
 }
 
-.menu .right-items button {
+.menu .right-item button {
   width: 100%;
 }
 
 .control-menu {
-  margin-right: 10px;
+  width: 90%;
   border: none;
   border-radius: 20px;
   background-color: #b18c79;

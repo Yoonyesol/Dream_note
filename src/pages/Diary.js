@@ -58,13 +58,13 @@ const Diary = () => {
         }
       />
       <div>
-        {data.img && (
-          <section>
+        <section>
+          {data.img && (
             <div className="diary-detail-img">
               <img alt="이미지" src={data.img}></img>
             </div>
-          </section>
-        )}
+          )}
+        </section>
         <section>
           <h4>장르 | 제목</h4>
           <div className="diary-detail-genre-title-wrapper">

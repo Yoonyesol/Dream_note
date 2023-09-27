@@ -123,7 +123,7 @@ const DiaryEditor = ({ isEdit, originData }) => {
         headText={isEdit ? "수정하기" : "새 일기 쓰기"}
         rightBtn={
           isEdit && (
-            <Button type="dark-brown" text="삭제하기" onClick={removeHandler} />
+            <Button type="red" text="삭제하기" onClick={removeHandler} />
           )
         }
       />
@@ -157,9 +157,9 @@ const DiaryEditor = ({ isEdit, originData }) => {
               />
             </div>
           </div>
-          <div className="genre-edit-div">
-            {genreEditorShown && (
-              <div className="genre-editor">
+          {genreEditorShown && (
+            <div className="genre-edit-div">
+              <div className={"genre-editor"}>
                 <input
                   placeholder="장르"
                   ref={userGenreRef}
@@ -181,9 +181,8 @@ const DiaryEditor = ({ isEdit, originData }) => {
                   </li>
                 ))}
               </div>
-            )}
-          </div>
-
+            </div>
+          )}
           <div className="genre-title-wrapper">
             <div className="genre-wrapper">
               <select value={genre} onChange={(e) => setGenre(e.target.value)}>

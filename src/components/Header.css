@@ -3,29 +3,47 @@ header {
 
   display: flex;
   align-items: center;
-  /* border-bottom: 1px solid #e7e1d8; */
 }
 
 header > div {
   display: flex;
 }
 
-header .header-text {
+.header-text {
   width: 50%;
+  font-weight: bold;
   font-size: 25px;
   justify-content: center;
+  text-align: center;
 }
 
-header .header-left-btn {
+.header-left-btn {
   width: 25%;
   justify-content: start;
 }
 
-header .header-right-btn {
+.header-right-btn {
   width: 25%;
   justify-content: end;
 }
 
 header button {
   font-family: "Noto Serif KR";
+}
+
+@media screen and (min-width: 280px) and (max-width: 650px) {
+  .header-text {
+    width: 45%;
+    font-size: 20px;
+  }
+
+  .header-left-btn {
+    width: 27.5%;
+    justify-content: start;
+  }
+
+  .header-right-btn {
+    width: 27.5%;
+    justify-content: end;
+  }
 }

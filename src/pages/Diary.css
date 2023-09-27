@@ -15,13 +15,14 @@ h4 {
 }
 
 .diary-detail-img {
-  align-items: center;
   text-align: center;
+  align-items: center;
+  height: 180px;
 }
 
 .diary-detail-img img {
   border-radius: 20px;
-  height: 180px;
+  height: 90%;
 }
 
 .diary-detail-genre-title-wrapper,
