@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import Button from "../components/Button";
 import { DiaryContext } from "../context/diary-context";
 import DiaryList from "../diary/DiaryList";
+import SearchBar from "../diary/SearchBar";
 
 const Home = () => {
   const diaryCtx = useContext(DiaryContext);
@@ -57,6 +58,7 @@ const Home = () => {
         leftBtn={<Button text="◀" onClick={decreaseMonthHandler} />}
         rightBtn={<Button text="▶" onClick={increaseMonthHandler} />}
       />
+      <SearchBar />
       <DiaryList diaryList={data} />
     </div>
   );
