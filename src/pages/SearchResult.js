@@ -17,9 +17,15 @@ const SearchResult = () => {
             onClick={() => navigate(-1)}
           />
         }
-        headText={`'${location.state.inputText}' 검색 결과입니다`}
+        headText="검색 결과"
       />
       <div className="searchResult">
+        <strong>
+          {location.state.inputText.length <= 20
+            ? `'${location.state.inputText}'`
+            : `'${location.state.inputText.slice(0, 20)}...'`}
+        </strong>
+        {` 검색 결과입니다.`}
         {location.state.SearchedData.map((it) => (
           <DiaryItem key={it.id} {...it} />
         ))}

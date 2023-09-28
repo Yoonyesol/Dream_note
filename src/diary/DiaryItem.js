@@ -36,7 +36,7 @@ const DiaryItem = ({ id, img, genre, title, content, date }) => {
             <div className="content-preview">
               <div className="diary-genre-title">{`${genre} | ${title.slice(
                 0,
-                15
+                20
               )}`}</div>
               <div className="diary-content">{content.slice(0, 45)}</div>
             </div>

@@ -18,7 +18,12 @@ const SearchBar = () => {
 
   const SearchedData = diaryCtx.diary.filter((it) => {
     if (inputText !== "") {
-      return it.content.toLowerCase().includes(inputText);
+      if (it.content.toLowerCase().includes(inputText)) {
+        return it.content.toLowerCase().includes(inputText);
+      }
+      if (it.title.toLowerCase().includes(inputText)) {
+        return it.title.toLowerCase().includes(inputText);
+      }
     }
   });
 
