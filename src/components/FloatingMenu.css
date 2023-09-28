@@ -1,0 +1,57 @@
+.floating-menu {
+  position: fixed;
+  bottom: 30px;
+}
+
+.menu-btn,
+.sub-btn {
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #975ab7;
+
+  /*버튼 안 텍스트 중앙정렬*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+  font-family: "Gothic A1", sans-serif;
+  font-size: 20px;
+
+  box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.menu-btn:hover {
+}
+
+@keyframes smoothAppear {
+  from {
+    opacity: 0;
+    transform: translateY(-5%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.options {
+  list-style: none;
+  padding: 0px;
+  margin-bottom: 10px;
+  animation: smoothAppear 1s;
+}
+
+.options li {
+  margin-top: 10px;
+}
+
+.sub-btn {
+  font-size: 13px;
+  background: #b18c79;
+}

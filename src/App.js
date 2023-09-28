@@ -6,6 +6,8 @@ import Edit from "./pages/Edit";
 import Diary from "./pages/Diary";
 import DiaryProvider from "./context/diary-context";
 import SearchResult from "./pages/SearchResult";
+import FloatingMenu from "./components/FloatingMenu";
+import Auth from "./pages/Auth";
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
             <Route path="/edit/:id" element={<Edit />} exact />
             <Route path="/diary/:id" element={<Diary />} exact />
             <Route path="/search" element={<SearchResult />} exact />
+            <Route path="/auth" element={<Auth />} exact />
           </Routes>
+          <FloatingMenu />
         </BrowserRouter>
       </DiaryProvider>
     </div>
