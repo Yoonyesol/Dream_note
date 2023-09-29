@@ -1,0 +1,62 @@
+.authentication {
+  width: 70%;
+  max-width: 25rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.input-field {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+h4 {
+  margin: 10px 0px;
+}
+
+.input-field input {
+  margin-bottom: 20px;
+  display: flex;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+
+  padding: 10px 20px;
+
+  font-family: "Gothic A1", sans-serif;
+  font-size: 16px;
+}
+
+.btn-field {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.input-field button {
+  margin-top: 15px;
+  width: 50%;
+}
+
+@media screen and (min-width: 280px) and (max-width: 512px) {
+  h2 {
+    margin: 10px 0;
+  }
+
+  .authentication {
+    margin: 2rem auto;
+  }
+
+  .input-field input {
+    font-size: 14px;
+  }
+
+  .btn-field {
+    flex-direction: column;
+  }
+
+  .input-field button {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
